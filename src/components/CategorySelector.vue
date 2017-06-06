@@ -14,7 +14,10 @@
 		},
 		props:{
 			categories:{
-				default:() => []
+				type:Array,
+				default: function(){
+					return []
+				}
 			}
 		}
 	}

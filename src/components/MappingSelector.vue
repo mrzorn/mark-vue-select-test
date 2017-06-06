@@ -14,7 +14,10 @@
 		},
 		props:{
 			mappings:{
-				default:() => []
+				type:Array,
+				default: function(){
+					return []
+				}
 			}
 		}
 	}
