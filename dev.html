@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue Select Dev</title>
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css" rel="stylesheet">-->
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.2/css/bulma.min.css" rel="stylesheet">-->
+    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">-->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"> -->
+    <style>
+        html,
+        body,
+        #app {
+            height: 100vh;
+        }
+
+        #app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .v-select {
+            width: 35em;
+            margin: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <template v-if="loaded">
+            <category-selector v-model="categories"></category-selector>
+            <mapping-selector v-model="mappings"></mapping-selector>
+            <button @click="submitCategories">Submit</button>
+        </template>
+    </div>
+</body>
+
+</html>
