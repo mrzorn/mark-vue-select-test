@@ -32,8 +32,8 @@
 <body>
     <div id="app">
         <template v-if="loaded">
-            <category-selector v-model="categories"></category-selector>
-            <mapping-selector v-model="mappings"></mapping-selector>
+            <category-selector :categories="categories"></category-selector>
+            <mapping-selector :mappings="mappings"></mapping-selector>
             <button @click="submitCategories">Submit</button>
         </template>
     </div>

@@ -1,5 +1,5 @@
 <template>
-	<v-select :placeholder="placeholder" multiple @search="performSearch" :options="ajaxRes" v-model="value"></v-select>
+	<v-select :placeholder="placeholder" multiple @search="performSearch" :options="ajaxRes" v-model="selected"></v-select>
 </template>
 <script type="text/babel">
 
@@ -12,12 +12,11 @@
 		data(){
 			return {
 				ajaxRes: [],
-				previousRequest: null,
-				value:null
+				previousRequest: null
 			}
 		},
 		props:{
-			value:{
+			selected:{
 				default:null
 			},
 			url:{

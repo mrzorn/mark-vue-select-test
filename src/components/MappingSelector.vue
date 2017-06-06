@@ -1,5 +1,5 @@
 <template>
-	<ajax-auto-complete placeholder="Select Mappings" v-model="value" url="me/mappings/autocomplete/" ></ajax-auto-complete>
+	<ajax-auto-complete placeholder="Select Mappings" :selected="mappings" url="me/mappings/autocomplete/" ></ajax-auto-complete>
 </template>
 <script type="text/babel">
 
@@ -13,7 +13,7 @@
 			return {}
 		},
 		props:{
-			value:{
+			mappings:{
 				default:null
 			}
 		}

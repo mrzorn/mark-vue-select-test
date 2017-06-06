@@ -1,5 +1,5 @@
 <template>
-	<ajax-auto-complete placeholder="Select Categories" v-model="value" url="me/categories/autocomplete/" ></ajax-auto-complete>
+	<ajax-auto-complete placeholder="Select Categories" :selected="categories" url="me/categories/autocomplete/" ></ajax-auto-complete>
 </template>
 <script type="text/babel">
 
@@ -13,7 +13,7 @@
 			return {}
 		},
 		props:{
-			value:{
+			categories:{
 				default:null
 			}
 		}
