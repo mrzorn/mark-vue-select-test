@@ -14,7 +14,7 @@
 		},
 		props:{
 			mappings:{
-				default:[]
+				default:() => []
 			}
 		}
 	}
