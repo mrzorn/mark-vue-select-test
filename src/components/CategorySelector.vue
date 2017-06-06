@@ -14,7 +14,7 @@
 		},
 		props:{
 			categories:{
-				default:null
+				default:[]
 			}
 		}
 	}
