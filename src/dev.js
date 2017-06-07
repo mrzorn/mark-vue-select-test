@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import CategorySelector from './components/CategorySelector'
 import MappingSelector from './components/MappingSelector'
+import vSelect from './components/Select.vue'
 import countries from 'docs/data/advanced.js'
 import debounce from 'lodash/debounce'
 import resource from 'vue-resource'
@@ -9,6 +10,7 @@ Vue.use(resource)
 
 Vue.component('category-selector', CategorySelector)
 Vue.component('mapping-selector', MappingSelector)
+Vue.component('v-select', vSelect)
 
 Vue.config.devtools = true
 

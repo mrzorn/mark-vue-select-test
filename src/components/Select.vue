@@ -2,7 +2,7 @@
   <div class="dropdown v-select" :class="dropdownClasses">
     <div ref="toggle" @mousedown.prevent="toggleDropdown" class="dropdown-toggle">
 
-      <span class="selected-tag" v-for="option in valueAsArray" v-bind:key="option.index" @click.prevent="deselect(option)">
+      <span class="selected-tag" :class="{multiple:multiple}" v-for="option in valueAsArray" v-bind:key="option.index" @click.prevent="clickedSelected(option)">
         {{ getOptionLabel(option) }}
         <button v-if="multiple" @click.prevent="deselect(option)" type="button" class="close">
           <span aria-hidden="true">&times;</span>
@@ -341,6 +341,7 @@
        * @return {void}
        */
       select(option) {
+        console.log("multiple? " + this.multiple)
         if (this.isOptionSelected(option)) {
           this.deselect(option)
         } else {
@@ -378,6 +379,13 @@
         } else {
           this.mutableValue = null
         }
+      },
+
+      clickedSelected(option){
+        if(!this.multiple)
+          return;
+
+        this.deselect(option)
       },
 
       /**
@@ -588,7 +596,7 @@
         let options = this.mutableOptions.filter((option) => {
 
           //don't display something that is already selected
-          if(this.mutableValue && this.mutableValue.indexOf(option) >= 0)
+          if(this.multiple && this.mutableValue && this.mutableValue.indexOf(option) >= 0)
             return false;
 
           if(this.mutableLoading){
@@ -745,19 +753,22 @@
   }
   /* Selected Tags */
   .v-select .selected-tag {
-    color: #fff;
-    background-color: #107cbe;
-    border: 1px solid #ccc;
-    border-radius: 4px;
     height: 26px;
     margin: 4px 1px 0px 3px;
     padding: 1px 0.25em;
     float: left;
     line-height: 24px;
-    cursor: pointer;
   }
 
-  .v-select .selected-tag:hover {
+  .v-select .selected-tag.multiple {
+    color: #fff; 
+    background-color: #107cbe;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .v-select .selected-tag.multiple:hover {
     background-color: #c8091a;
   }
   .v-select.single .selected-tag {
