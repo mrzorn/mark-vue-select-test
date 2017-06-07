@@ -538,7 +538,8 @@
        */
       dropdownClasses() {
         return {
-          open: this.dropdownOpen,
+          // open: this.dropdownOpen,
+          open: true,
           single: !this.multiple,
           searching: this.searching,
           searchable: this.searchable,
