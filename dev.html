@@ -31,6 +31,8 @@
 
 <body>
     <div id="app">
+        <v-select placeholder="stuff" :options="['cat', 'dog', 'bear']"></v-select>
+        
         <template v-if="loaded">
             <category-selector :categories="categories"></category-selector>
             <mapping-selector :mappings="mappings"></mapping-selector>

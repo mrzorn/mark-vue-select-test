@@ -588,7 +588,7 @@
         let options = this.mutableOptions.filter((option) => {
 
           //don't display something that is already selected
-          if(this.mutableValue.indexOf(option) >= 0)
+          if(this.mutableValue && this.mutableValue.indexOf(option) >= 0)
             return false;
 
           if(this.mutableLoading){
