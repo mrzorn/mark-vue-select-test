@@ -538,8 +538,7 @@
        */
       dropdownClasses() {
         return {
-          // open: this.dropdownOpen,
-          open: true,
+          open: this.dropdownOpen,
           single: !this.multiple,
           searching: this.searching,
           searchable: this.searchable,
@@ -777,7 +776,6 @@
     border-color: transparent;
   }
   .v-select.single.open .selected-tag {
-    position: absolute;
     opacity: .5;
   }
   .v-select.single.open.searching .selected-tag,
