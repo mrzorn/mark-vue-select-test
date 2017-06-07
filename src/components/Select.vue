@@ -2,7 +2,7 @@
   <div class="dropdown v-select" :class="dropdownClasses">
     <div ref="toggle" @mousedown.prevent="toggleDropdown" class="dropdown-toggle">
 
-      <span class="selected-tag" :class="{multiple:multiple}" v-for="option in valueAsArray" v-bind:key="option.index" @click.prevent="clickedSelected(option)">
+      <span class="selected-tag" :class="{multiple:multiple}" v-if="multiple || !open" v-for="option in valueAsArray" v-bind:key="option.index" @click.prevent="clickedSelected(option)">
         {{ getOptionLabel(option) }}
         <button v-if="multiple" @click.prevent="deselect(option)" type="button" class="close">
           <span aria-hidden="true">&times;</span>
