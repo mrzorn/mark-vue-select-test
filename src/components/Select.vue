@@ -638,7 +638,7 @@
 
   }
 </script>
-<style>
+<style scoped>
   .v-select {
     position: relative;
     font-family: sans-serif;
