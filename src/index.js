@@ -6,6 +6,7 @@
 // export default AjaxAutoComplete
 // export { AjaxAutoComplete, ShareableeCategorySelector, ShareableeMappingSelector, mixins }
 
+exports.VueSelect = require('./components/Select.vue');
 exports.AjaxAutoComplete = require('./components/AjaxAutoComplete.vue');
 exports.ShareableeCategorySelector = require('./components/CategorySelector.vue');
 exports.ShareableeMappingSelector = require('./components/MappingSelector.vue');
