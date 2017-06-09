@@ -37,7 +37,7 @@
       			this.ajaxSearch(search, page, null, onComplete, this)
 			},
 			performSearch(search, loading){
-				loading(true),
+				// loading(true);
       			this.ajaxSearch(search, 1, loading, null, this)
 			},
 			ajaxSearch: (search, page, loading, onCompleteCallback, vm) => {
@@ -69,8 +69,8 @@
 		        	}
 		        }
 
-		        if(loading)
-		        	loading(false)
+		        // if(loading)
+		        // 	loading(false)
 
 		        if(onCompleteCallback)
 		        	//if it was less than the limit, then no more to load
