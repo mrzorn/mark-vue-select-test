@@ -23,7 +23,7 @@ module.exports = {
 		 */
 		onSearch: {
 			type: Function,
-			default: function(search, loading){}
+			default: function(search, loading, onComplete){}
 		}
 	},
 
@@ -63,6 +63,7 @@ module.exports = {
 			if (toggle == null) {
 				return this.mutableLoading = !this.mutableLoading
 			}
+
 			return this.mutableLoading = toggle
 		},
 		loadSearch(){

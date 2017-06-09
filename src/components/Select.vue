@@ -35,13 +35,13 @@
     </div>
 
     <transition :name="transition">
-      <ul ref="dropdownMenu" v-if="dropdownOpen" class="dropdown-menu" :style="{ 'max-height': maxHeight }">
+      <ul ref="dropdownMenu" v-if="dropdownOpen" class="dropdown-menu" :style="{ 'max-height': maxHeight}" @scroll="onDropdownScrolled">
         <li v-for="(option, index) in filteredOptions" v-bind:key="index" :class="{ active: isOptionSelected(option), highlight: index === typeAheadPointer }" @mouseover="typeAheadPointer = index">
           <a @mousedown.prevent="select(option)">
             {{ getOptionLabel(option) }}
           </a>
         </li>
-        <li v-if="!filteredOptions.length && mutableLoading" class="no-options">
+        <li v-if="(!filteredOptions.length && mutableLoading) || infiniteLoading" class="no-options">
           <slot name="no-options">Loading...</slot>
         </li>
         <li v-if="!filteredOptions.length && !mutableLoading" class="no-options">
@@ -252,6 +252,9 @@
        */
       inputId: {
         type: String
+      },
+      loadNextPage:{
+        type:Function
       }
     },
 
@@ -260,7 +263,11 @@
         search: '',
         open: false,
         mutableValue: null,
-        mutableOptions: []
+        mutableOptions: [],
+        page:1,
+        infiniteLoading:false,
+        morePages:true,
+        scrollTop:0
       }
     },
 
@@ -273,6 +280,12 @@
        */
       value(val) {
 				this.mutableValue = val
+      },
+
+      search(){
+        this.infiniteLoading = false;
+        this.morePages = true;
+        this.setDropdownScroll(this.scrollTop);
       },
 
       /**
@@ -295,8 +308,12 @@
        * @param  {array} val
        * @return {void}
        */
-      options(val) {
+      options(val, old) {
         this.mutableOptions = val
+        if(old !== val)
+          this.scrollTop = 0;
+
+        this.setDropdownScroll(this.scrollTop);
       },
 
       /**
@@ -334,6 +351,34 @@
     },
 
     methods: {
+      setDropdownScroll(scrollTop){
+        if(this.$refs.dropdownMenu)
+          this.$refs.dropdownMenu.scrollTop = scrollTop;
+      },
+      onDropdownScrolled(event){
+        this.scrollTop = event.target.scrollTop;
+
+        if(!this.morePages || this.infiniteLoading)
+          return;
+
+        if(!this.loadNextPage){
+          this.morePages = false;
+          return;
+        }
+
+        var scrollTop = parseInt(this.maxHeight) + event.target.scrollTop;
+        var percent = scrollTop / event.target.scrollHeight;
+        if(percent > 0.9){
+          this.infiniteLoading = true;
+          this.page++;
+          this.loadNextPage(this.search, this.page, this.nextPageLoaded)
+        }
+      },  
+
+      nextPageLoaded(morePages){
+        this.morePages = morePages
+        this.infiniteLoading = false;
+      },
 
       /**
        * Select a given option.
