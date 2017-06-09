@@ -341,7 +341,6 @@
        * @return {void}
        */
       select(option) {
-        console.log("multiple? " + this.multiple)
         if (this.isOptionSelected(option)) {
           this.deselect(option)
         } else {
