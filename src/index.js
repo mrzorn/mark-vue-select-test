@@ -10,3 +10,4 @@ exports.VueSelect = require('./components/Select.vue');
 exports.AjaxAutoComplete = require('./components/AjaxAutoComplete.vue');
 exports.ShareableeCategorySelector = require('./components/CategorySelector.vue');
 exports.ShareableeMappingSelector = require('./components/MappingSelector.vue');
+exports.authMixin = require('./mixins/authMixin.js');

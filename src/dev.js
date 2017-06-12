@@ -16,7 +16,7 @@ Vue.config.devtools = true
 
 Vue.http.options.root = 'http://localhost:8000/api/v1/'
 
-Vue.http.headers.common['Authorization'] = 'Bearer VgSxAYjvWdRyMF0QHW9svjNtSnS1sy';
+Vue.http.headers.common['Authorization'] = 'Bearer HxiLb92azyV6XI8p9N0H1d6QrrMmgG';
 Vue.http.headers.common['Content-Type'] = 'application/json';
 
 /* eslint-disable no-new */
