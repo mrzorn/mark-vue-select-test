@@ -9,7 +9,7 @@ base.entry = {
 base.output = {
   path: config.build.assetsRoot,
   publicPath: config.build.assetsPublicPath,
-  filename: 'shareablee-select.js',
+  filename: 'shareablee-components.js',
   library: 'ShareableeSelect',
   libraryTarget: 'umd'
 }
