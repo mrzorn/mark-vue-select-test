@@ -30,7 +30,7 @@ module.exports = {
     getPreferences(){
       this.$http.get('me/preferences/', {
         headers:{
-          Authorization:'Bearer ' + oauthToken
+          Authorization:'Bearer ' + this.oauthToken
         }
       }).then(res => {
         console.log(typeof res.data);
