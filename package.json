@@ -1,10 +1,9 @@
 {
-  "name": "shareablee-select",
+  "name": "shareablee-components",
   "version": "1.0.0",
-  "description": "A fork of vue-select for use by Shareablee.",
-  "author": "Jeff Sagal <sagalbot@gmail.com>",
-  "private": false,
-  "main": "dist/shareablee-select.js",
+  "description": "A fork of vue-select for use by Shareablee - as well as other reusable components",
+  "private": true,
+  "main": "dist/shareablee-components.js",
   "scripts": {
     "dev": "node build/dev-server.js",
     "dev:docs": "node build/dev-server.js --docs",
