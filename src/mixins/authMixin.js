@@ -1,5 +1,8 @@
 import Vue from 'vue'
 
+import VueCookies from 'vue-cookie'
+Vue.use(VueCookies)
+
 export const authMixin = {
   data(){
     return{
