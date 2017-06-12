@@ -47,7 +47,8 @@ module.exports = {
     },
     redirectToLogin(){
       //TODO use config somehow
-      window.location.href = 'http://localhost:8000/login'
+      // window.location.href = 'http://localhost:8000/login'
+      console.log('redirect to login page');
     }
 
   }
