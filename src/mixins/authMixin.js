@@ -50,6 +50,7 @@ module.exports = {
       window.location.href = this.getLoginUrl();
     },
     getLoginUrl(){
+      console.log('get login url in mixin')
       return 'http://localhost:8000/login'
     }
 
