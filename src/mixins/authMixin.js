@@ -47,8 +47,10 @@ module.exports = {
       })
     },
     redirectToLogin(){
-      //TODO use config somehow
-      window.location.href = process.env.LOGIN_URL
+      window.location.href = this.getLoginUrl();
+    },
+    getLoginUrl(){
+      return 'http://localhost:8000/login'
     }
 
   }
