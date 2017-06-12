@@ -7,7 +7,8 @@ module.exports = {
   data(){
     return{
       userAuthenticated: false,
-      userPreferences:{}
+      userPreferences:{},
+      oauthToken:'',
     }
   },
   created(){
@@ -17,7 +18,7 @@ module.exports = {
       this.redirectToLogin();
       return;
     }
-    this.$http.headers.common['Authorization'] = 'Bearer ' + oauthToken;
+    this.oauthToken = oauthToken;
     this.getPreferences();
   },
   methods:{
@@ -27,7 +28,11 @@ module.exports = {
       alert(message);
     },
     getPreferences(){
-      this.$http.get('me/preferences/').then(res => {
+      this.$http.get('me/preferences/', {
+        headers:{
+          Authorization:'Bearer ' + oauthToken
+        }
+      }).then(res => {
         console.log(typeof res.data);
         if(!res.data || typeof(res.data) !== typeof {}) {
           this.redirectToLogin();
