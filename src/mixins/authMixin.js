@@ -3,9 +3,6 @@ import Vue from 'vue'
 import VueCookies from 'vue-cookie'
 Vue.use(VueCookies)
 
-import resource from 'vue-resource'
-Vue.use(resource)
-
 module.exports = {
   data(){
     return{
@@ -20,8 +17,7 @@ module.exports = {
       this.redirectToLogin();
       return;
     }
-
-    Vue.http.headers.common['Authorization'] = 'Bearer ' + oauthToken;
+    this.$http.headers.common['Authorization'] = 'Bearer ' + oauthToken;
     this.getPreferences();
   },
   methods:{
