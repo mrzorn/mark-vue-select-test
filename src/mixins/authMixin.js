@@ -3,7 +3,7 @@ import Vue from 'vue'
 import VueCookies from 'vue-cookie'
 Vue.use(VueCookies)
 
-export const authMixin = {
+module.exports = {
   data(){
     return{
       userAuthenticated: false,
@@ -47,5 +47,3 @@ export const authMixin = {
 
   }
 }
-
-//Vue.http.headers.common['Authorization'] = 'Bearer paRpQ0RMB6PuCb2XiZxgM2urhbvYhy';
