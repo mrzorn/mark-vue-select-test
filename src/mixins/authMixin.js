@@ -15,6 +15,7 @@ module.exports = {
   },
   created(){
     var oauthToken = Vue.cookie.get('shareablee_oauth_token');
+    console.log('oauthToken found ' + oauthToken);
     if(!oauthToken){
       this.redirectToLogin();
       return;
@@ -31,6 +32,7 @@ module.exports = {
     },
     getPreferences(){
       this.$http.get('me/preferences/').then(res => {
+        console.log(typeof res.data);
         if(!res.data || typeof(res.data) !== typeof {}) {
           this.redirectToLogin();
           return;
