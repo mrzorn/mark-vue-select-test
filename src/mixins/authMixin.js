@@ -3,6 +3,9 @@ import Vue from 'vue'
 import VueCookies from 'vue-cookie'
 Vue.use(VueCookies)
 
+import resource from 'vue-resource'
+Vue.use(resource)
+
 module.exports = {
   data(){
     return{
