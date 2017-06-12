@@ -13,7 +13,7 @@ module.exports = {
   },
   created(){
     var oauthToken = Vue.cookie.get('shareablee_oauth_token');
-    console.log('oauthToken found ' + oauthToken);
+    
     if(!oauthToken){
       this.redirectToLogin();
       return;
@@ -48,8 +48,7 @@ module.exports = {
     },
     redirectToLogin(){
       //TODO use config somehow
-      // window.location.href = 'http://localhost:8000/login'
-      console.log('redirect to login page');
+      window.location.href = 'http://localhost:8000/login'
     }
 
   }
