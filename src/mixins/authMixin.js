@@ -48,8 +48,13 @@ module.exports = {
       })
     },
     redirectToLogin(){
-      console.log('redirecting to login');
-      // window.location.href = this.getLoginUrl();
+      var loginUrl = this.getLoginUrl();
+      if(loginUrl == null){
+        console.log('login url not specified')
+        return;
+      }
+
+      window.location.href = loginUrl;
     },
     getLoginUrl(){
       return 'http://localhost:8000/login'
