@@ -28,7 +28,7 @@ module.exports = {
       alert(message);
     },
     getPreferences(){
-      this.$http.get('me/preferences/', {
+      this.$http.get('me/preferences', {
         headers:{
           Authorization:'Bearer ' + this.oauthToken
         }
