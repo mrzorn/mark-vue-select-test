@@ -43,7 +43,6 @@ module.exports = {
         this.userPreferences = res.data;
         this.authorized();
       }, error=>{
-        console.log('error ' + error.status)
         this.redirectToLogin();
       })
     },
