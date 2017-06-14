@@ -13,7 +13,6 @@ module.exports = {
   },
   created(){
     var oauthToken = Vue.cookie.get('shareablee_oauth_token');
-    console.log('oauthToken ' + oauthToken);
 
     if(!oauthToken){
       this.redirectToLogin();
